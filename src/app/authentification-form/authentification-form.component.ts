@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../authentification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authentification-form',
@@ -11,7 +12,7 @@ export class AuthentificationFormComponent implements OnInit {
   password = '';
   message = '';
 
-  constructor(private service: AuthentificationService) { }
+  constructor(private service: AuthentificationService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,13 +21,18 @@ export class AuthentificationFormComponent implements OnInit {
   authentificate() {
     this.service.authentificationCom(this.username, this.password)
     .then(vu => {
-      if (vu.username) {this.message = `connexion effectuée`;
+      if (vu.username) {
+      this.router.navigate(['/pageaccueil']);
+      this.message = `connexion effectuée`;
+      
     } else {
+      this.router.navigate(['/authentification-form']);
       this.message = `connexion a échouée`;
     }
     },
     err => {
       console.log(err);
+      this.router.navigate(['/authentification-form']);
       this.message = `connexion interdite`;
     }
     );

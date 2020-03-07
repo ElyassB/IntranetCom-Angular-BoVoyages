@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Destination } from '../destination';
 import{DestinationService} from '../destination.service';
+import { AuthentificationFormComponent } from '../authentification-form/authentification-form.component';
 
 @Component({
   selector: 'app-pageaccueil',
@@ -13,13 +14,14 @@ export class PageaccueilComponent implements OnInit {
   nom :string;
   image :string;//a modifier surement
 
+  message :string;
+
   constructor(private destinationService: DestinationService) { }
 
-  // ngOnInit(): void {
-  //   this.destinationService.change.subscribe(datas => this.destinations = datas);
-  // }
 
   ngOnInit(){
+   
+    this.destinationService.change.subscribe(datas => this.destinations = datas);
      this.destinationService.getAllDestinations();
   }
 

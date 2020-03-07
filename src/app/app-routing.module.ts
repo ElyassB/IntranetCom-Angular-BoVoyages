@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthentificationFormComponent } from './authentification-form/authentification-form.component';
+import { PageaccueilComponent } from './pageaccueil/pageaccueil.component';
+
+const routes: Routes = [
+  {path: 'authentification-form', component: AuthentificationFormComponent},
+  {path: 'pageaccueil', component: PageaccueilComponent},
+];
 
 
-const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
