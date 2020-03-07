@@ -9,9 +9,9 @@ import{DestinationService} from '../destination.service';
 })
 export class PageaccueilComponent implements OnInit {
 
-  destinations :Destination[] = [];
-  nom :string;
-  image :string;//a modifier surement
+  destinations: Destination[] = [];
+  nom: string;
+  image: string;//a modifier surement
 
   constructor(private destinationService: DestinationService) { }
 
@@ -19,8 +19,9 @@ export class PageaccueilComponent implements OnInit {
   //   this.destinationService.change.subscribe(datas => this.destinations = datas);
   // }
 
-  ngOnInit(){
+  ngOnInit() {
      this.destinationService.getAllDestinations();
+     this.destinationService.change.subscribe(datas => this.destinations = datas);
   }
 
   // ngOnDestroy() {
