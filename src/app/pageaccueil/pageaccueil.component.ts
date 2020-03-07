@@ -21,8 +21,9 @@ export class PageaccueilComponent implements OnInit {
 
   ngOnInit(){
    
+    this.destinationService.getAllDestinations();
     this.destinationService.change.subscribe(datas => this.destinations = datas);
-     this.destinationService.getAllDestinations();
+    
   }
 
   // ngOnDestroy() {
