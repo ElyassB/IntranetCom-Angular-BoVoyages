@@ -14,7 +14,7 @@ export class DestinationService {
 
   constructor(private httpclient: HttpClient) { }
 
-  getAllDestinations(){
+  getAllDestinations() {
 
     this.httpclient.get<Destination[]>(`${environment.serverUrl}destinations/all`)
       .subscribe((datas) => {
@@ -25,4 +25,17 @@ export class DestinationService {
 
 
   }
+
+
+  // delete() {
+  //   this.httpclient.delete<Destination[]>(`${environment.serverUrl}destination/delete`)
+  //   ._subscribe((datas) => {
+  //     this.destinations=datas;
+  //     datas.forEach(d => console.log(d.region));
+  //     this.change.emit(this.destinations);
+  //   })
+
+  //}
+
+
 }
