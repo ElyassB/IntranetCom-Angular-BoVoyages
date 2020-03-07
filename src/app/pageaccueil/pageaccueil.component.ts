@@ -10,9 +10,9 @@ import { AuthentificationFormComponent } from '../authentification-form/authenti
 })
 export class PageaccueilComponent implements OnInit {
 
-  destinations :Destination[] = [];
-  nom :string;
-  image :string;//a modifier surement
+  destinations: Destination[] = [];
+  nom: string;
+  image: string;//a modifier surement
 
   message :string;
 
@@ -23,7 +23,6 @@ export class PageaccueilComponent implements OnInit {
    
     this.destinationService.getAllDestinations();
     this.destinationService.change.subscribe(datas => this.destinations = datas);
-    
   }
 
   // ngOnDestroy() {
