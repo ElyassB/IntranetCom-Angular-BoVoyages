@@ -14,7 +14,6 @@ export class AuthentificationService {
 
 
   authentificationCom(username: string, password: string): Promise<ValidUser> {
-    console.log('liste de users');
     const url = environment.serverUrl + `authentification/${username}/${password}`;
     console.log(`${url}`);
     return this.httpClient.get<ValidUser>(url).toPromise();
